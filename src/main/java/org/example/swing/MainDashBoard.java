@@ -27,7 +27,6 @@ public class MainDashBoard extends JFrame{
             registrationForm.setLocationRelativeTo(null);
             registrationForm.setVisible(true);
         }
-
     }
     );
         loginButton.addActionListener(new ActionListener() {
