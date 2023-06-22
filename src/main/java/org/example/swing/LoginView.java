@@ -2,11 +2,15 @@ package org.example.swing;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class LoginView extends JDialog{
+    public static String authToken;
     private JPanel here;
     private JTextField emailField;
     private JButton loginButton;
@@ -45,6 +49,17 @@ public class LoginView extends JDialog{
 
             int responseCode = connection.getResponseCode();
             if (responseCode == HttpURLConnection.HTTP_OK) {
+                InputStream inputStream = connection.getInputStream();
+                BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+                StringBuilder response = new StringBuilder();
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    response.append(line);
+                }
+                reader.close();
+
+                authToken = response.toString();
+                System.out.println(authToken);
                 JOptionPane.showMessageDialog(this, "POST request successful");
             } else {
                 JOptionPane.showMessageDialog(this, "POST request failed with response code: " + responseCode);
