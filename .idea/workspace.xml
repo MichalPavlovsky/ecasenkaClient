@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="15e1383b-a200-4763-b21e-975783f02ee6" name="Changes" comment="Post Login and RegistrationForm">
+    <list default="true" id="15e1383b-a200-4763-b21e-975783f02ee6" name="Changes" comment="save authToken">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/swing/DoctorWindow.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/swing/DoctorWindow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/swing/PatientWindow.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/swing/PatientWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/swing/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/swing/LoginView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,9 +48,9 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "false",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
     "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "387",
-    "last_opened_file_path": "C:/Users/MIchalPC/Desktop/ecasenkaClient/src/main/java/org/example/swing",
+    "last_opened_file_path": "C:/Users/MIchalPC/Desktop/ecasenkaClient",
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
@@ -71,8 +76,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SecurePageClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.swing.SecurePageClient" />
+      <module name="ecasenkaClient" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.swing.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.SecurePageClient" />
         <item itemvalue="Application.Client" />
       </list>
     </recent_temporary>
@@ -114,7 +133,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687422742754</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="save authToken">
+      <created>1687428159866</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1687428159866</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -122,6 +148,7 @@
     <MESSAGE value="Dashboard, Login and Registration form" />
     <MESSAGE value="Missing Registration Form" />
     <MESSAGE value="Post Login and RegistrationForm" />
-    <option name="LAST_COMMIT_MESSAGE" value="Post Login and RegistrationForm" />
+    <MESSAGE value="save authToken" />
+    <option name="LAST_COMMIT_MESSAGE" value="save authToken" />
   </component>
 </project>

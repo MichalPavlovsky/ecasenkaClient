@@ -1,5 +1,9 @@
 package org.example.swing;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.http.HttpEntity;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.BufferedReader;
@@ -25,10 +29,10 @@ public class LoginView extends JDialog{
         setLocationRelativeTo(parent);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         pack();
-        loginButton.addActionListener(e -> submitForm());
+        loginButton.addActionListener(e -> submitForm(parent));
     }
 
-    private void submitForm() {
+    private void submitForm(JFrame parent) {
         String email = emailField.getText();
         String password = passwordField1.getUIClassID();
         try {
@@ -48,6 +52,7 @@ public class LoginView extends JDialog{
             outputStream.close();
 
             int responseCode = connection.getResponseCode();
+            System.out.println(responseCode);
             if (responseCode == HttpURLConnection.HTTP_OK) {
                 InputStream inputStream = connection.getInputStream();
                 BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
@@ -56,11 +61,37 @@ public class LoginView extends JDialog{
                 while ((line = reader.readLine()) != null) {
                     response.append(line);
                 }
-                reader.close();
+                String responseText = response.toString();
+                ObjectMapper objectMapper = new ObjectMapper();
+                JsonNode jsonResponse = objectMapper.readTree(responseText);
 
-                authToken = response.toString();
-                System.out.println(authToken);
-                JOptionPane.showMessageDialog(this, "POST request successful");
+                String role = jsonResponse.get("role").asText();
+                String token = jsonResponse.get("token").asText();
+                String username  = jsonResponse.get("name").asText();
+                System.out.println(role);
+
+                if ("USER".equals(role)) {
+                    JOptionPane.showMessageDialog(this, "POST request successful");
+                    PatientWindow patientWindow = new PatientWindow(parent);
+                    setVisible(false);
+                    JLabel name = new JLabel();
+                    name.setText("Dobry den "+ username);
+                    patientWindow.setUvod(name);
+                    patientWindow.setVisible(true);
+
+                }
+                else if ("DOCTOR".equals(role)) {
+                    JOptionPane.showMessageDialog(this, "POST request successful");
+                    DoctorWindow doctorWindow = new DoctorWindow(parent);
+                    setVisible(false);
+                    JLabel name = new JLabel();
+                    name.setText("Dobry den pan doktor "+ username);
+                    doctorWindow.setNamefield(name);
+                    doctorWindow.setVisible(true);
+
+                }
+
+
             } else {
                 JOptionPane.showMessageDialog(this, "POST request failed with response code: " + responseCode);
             }
