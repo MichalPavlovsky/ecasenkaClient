@@ -34,7 +34,7 @@ public class LoginView extends JDialog{
 
     private void submitForm(JFrame parent) {
         String email = emailField.getText();
-        String password = passwordField1.getUIClassID();
+        String password = passwordField1.getText();
         try {
             URL url = new URL("http://localhost:8080/api/v1/auth/authenticate");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -50,6 +50,7 @@ public class LoginView extends JDialog{
             outputStream.write(jsonBody.getBytes());
             outputStream.flush();
             outputStream.close();
+            System.out.println(jsonBody);
 
             int responseCode = connection.getResponseCode();
             System.out.println(responseCode);
@@ -68,15 +69,14 @@ public class LoginView extends JDialog{
                 String role = jsonResponse.get("role").asText();
                 String token = jsonResponse.get("token").asText();
                 String username  = jsonResponse.get("name").asText();
-                System.out.println(role);
+
 
                 if ("USER".equals(role)) {
                     JOptionPane.showMessageDialog(this, "POST request successful");
                     PatientWindow patientWindow = new PatientWindow(parent);
                     setVisible(false);
-                    JLabel name = new JLabel();
-                    name.setText("Dobry den "+ username);
-                    patientWindow.setUvod(name);
+
+                    patientWindow.setUvod("ahoj "+username);
                     patientWindow.setVisible(true);
 
                 }
@@ -84,9 +84,7 @@ public class LoginView extends JDialog{
                     JOptionPane.showMessageDialog(this, "POST request successful");
                     DoctorWindow doctorWindow = new DoctorWindow(parent);
                     setVisible(false);
-                    JLabel name = new JLabel();
-                    name.setText("Dobry den pan doktor "+ username);
-                    doctorWindow.setNamefield(name);
+                    doctorWindow.setNamefield("Dobry den pan doktor "+ username);
                     doctorWindow.setVisible(true);
 
                 }

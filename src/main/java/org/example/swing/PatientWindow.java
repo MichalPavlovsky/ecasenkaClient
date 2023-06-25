@@ -11,8 +11,8 @@ public class PatientWindow extends  JDialog{
         return uvod;
     }
 
-    public void setUvod(JLabel uvod) {
-        this.uvod = uvod;
+    public void setUvod(String text) {
+        this.uvod.setText(text);
     }
 
     public PatientWindow(JFrame parent){

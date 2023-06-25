@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="15e1383b-a200-4763-b21e-975783f02ee6" name="Changes" comment="save authToken">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/swing/DoctorWindow.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/swing/DoctorWindow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/swing/PatientWindow.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/swing/PatientWindow.java" afterDir="false" />
+    <list default="true" id="15e1383b-a200-4763-b21e-975783f02ee6" name="Changes" comment="patientWindow and DoctorWindow">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/swing/DoctorWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/swing/DoctorWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/swing/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/swing/LoginView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/swing/PatientWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/swing/PatientWindow.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,9 +45,10 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "false",
     "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "387",
-    "last_opened_file_path": "C:/Users/MIchalPC/Desktop/ecasenkaClient",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "367",
+    "last_opened_file_path": "C:/Users/MIchalPC/Desktop/ecasenkaApp/ecasenka",
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
@@ -91,8 +89,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.SecurePageClient" />
         <item itemvalue="Application.Client" />
+        <item itemvalue="Application.SecurePageClient" />
       </list>
     </recent_temporary>
   </component>
@@ -140,7 +138,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687428159866</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="patientWindow and DoctorWindow">
+      <created>1687637125520</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1687637125520</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -149,6 +154,7 @@
     <MESSAGE value="Missing Registration Form" />
     <MESSAGE value="Post Login and RegistrationForm" />
     <MESSAGE value="save authToken" />
-    <option name="LAST_COMMIT_MESSAGE" value="save authToken" />
+    <MESSAGE value="patientWindow and DoctorWindow" />
+    <option name="LAST_COMMIT_MESSAGE" value="patientWindow and DoctorWindow" />
   </component>
 </project>

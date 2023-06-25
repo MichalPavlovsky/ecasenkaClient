@@ -11,8 +11,8 @@ public class DoctorWindow extends JDialog {
         return namefield;
     }
 
-    public void setNamefield(JLabel namefield) {
-        this.namefield = namefield;
+    public void setNamefield(String text) {
+        this.namefield.setText(text);
     }
 
     public DoctorWindow(JFrame parent){
