@@ -1,24 +1,41 @@
 package org.example.swing;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.http.HttpEntity;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class LoginView extends JDialog{
+    public static String getAuthToken() {
+        return authToken;
+    }
+
+    public static void setAuthToken(String authToken) {
+        LoginView.authToken = authToken;
+    }
+
     public static String authToken;
     private JPanel here;
     private JTextField emailField;
     private JButton loginButton;
     private JPasswordField passwordField1;
+    public static String NIECO;
+
+    public static String getNIECO() {
+        return NIECO;
+    }
+
+    public static void setNIECO(String NIECO) {
+        LoginView.NIECO = NIECO;
+    }
 
     public LoginView(JFrame parent){
         super(parent);
@@ -50,10 +67,7 @@ public class LoginView extends JDialog{
             outputStream.write(jsonBody.getBytes());
             outputStream.flush();
             outputStream.close();
-            System.out.println(jsonBody);
-
             int responseCode = connection.getResponseCode();
-            System.out.println(responseCode);
             if (responseCode == HttpURLConnection.HTTP_OK) {
                 InputStream inputStream = connection.getInputStream();
                 BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
@@ -68,6 +82,7 @@ public class LoginView extends JDialog{
 
                 String role = jsonResponse.get("role").asText();
                 String token = jsonResponse.get("token").asText();
+                setAuthToken(token);
                 String username  = jsonResponse.get("name").asText();
 
 
@@ -75,9 +90,13 @@ public class LoginView extends JDialog{
                     JOptionPane.showMessageDialog(this, "POST request successful");
                     PatientWindow patientWindow = new PatientWindow(parent);
                     setVisible(false);
-
+                    setComBox(patientWindow.getComboBox1());
                     patientWindow.setUvod("ahoj "+username);
                     patientWindow.setVisible(true);
+                    patientWindow.getVybratButton().addActionListener(e -> {
+                        String selectedDoctor= (String) patientWindow.getComboBox1().getSelectedItem();
+                        getDataFromdoctor(selectedDoctor);
+                    });
 
                 }
                 else if ("DOCTOR".equals(role)) {
@@ -101,4 +120,52 @@ public class LoginView extends JDialog{
         }
     }
 
+    private void getDataFromdoctor(String selectedDoctor) {
+
     }
+
+    private void setComBox(JComboBox comboBox1) {
+        try {
+            URL url = new URL("http://localhost:8080/api/get/doctors");
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+            connection.setRequestProperty("Authorization", "Bearer " + getAuthToken());
+
+            // Získať JSON response
+            int responseCode = connection.getResponseCode();
+            if (responseCode == HttpURLConnection.HTTP_OK) {
+                BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                StringBuilder jsonResponse = new StringBuilder();
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    jsonResponse.append(line);
+                }
+                reader.close();
+
+                // Spracovať JSON response a získať zoznam mien
+                ObjectMapper objectMapper = new ObjectMapper();
+                List<Map<String, String>> responseList = objectMapper.readValue(jsonResponse.toString(), new TypeReference<>() {});
+
+                // Vytvorenie zoznamu mien
+                List<String> nameList = new ArrayList<>();
+                for (Map<String, String> responseItem : responseList) {
+                    String fullName = responseItem.get("fullName");
+                    nameList.add(fullName);
+                }
+
+                // Vypíšte zoznam mien
+                for (String name : nameList) {
+                    comboBox1.addItem(name);
+                }
+            } else {
+                // Neúspešná odpoveď
+                System.out.println("Chyba pri získavaní JSON response. Response Code: " + responseCode);
+            }
+
+            connection.disconnect();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+}
