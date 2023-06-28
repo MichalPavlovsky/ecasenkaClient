@@ -93,10 +93,6 @@ public class LoginView extends JDialog{
                     setComBox(patientWindow.getComboBox1());
                     patientWindow.setUvod("ahoj "+username);
                     patientWindow.setVisible(true);
-                    patientWindow.getVybratButton().addActionListener(e -> {
-                        String selectedDoctor= (String) patientWindow.getComboBox1().getSelectedItem();
-                        getDataFromdoctor(selectedDoctor);
-                    });
 
                 }
                 else if ("DOCTOR".equals(role)) {
@@ -120,9 +116,6 @@ public class LoginView extends JDialog{
         }
     }
 
-    private void getDataFromdoctor(String selectedDoctor) {
-
-    }
 
     private void setComBox(JComboBox comboBox1) {
         try {

@@ -2,6 +2,8 @@ package org.example.swing;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class PatientWindow extends  JDialog{
     private JPanel patient;
@@ -22,8 +24,8 @@ public class PatientWindow extends  JDialog{
         return vybratButton;
     }
 
-    public void setVybratButton(JButton vybratButton) {
-        this.vybratButton = vybratButton;
+    public void setVybratButton(String name) {
+        this.vybratButton.setText(name);
     }
 
     private JButton vybratButton;
@@ -45,6 +47,24 @@ public class PatientWindow extends  JDialog{
         setLocationRelativeTo(parent);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         pack();
+
+        vybratButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                String selectedDoctor= (String) comboBox1.getSelectedItem();
+                getDataFromdoctor(selectedDoctor);
+
+            }
+        });
+    }
+    private void getDataFromdoctor(String selectedDoctor) {
+        String[] parts = selectedDoctor.split(" ");
+        String firstName = parts[0];
+        String lastName = parts[1];
+
+
+
 
     }
 }

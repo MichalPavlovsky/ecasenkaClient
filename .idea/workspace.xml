@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="15e1383b-a200-4763-b21e-975783f02ee6" name="Changes" comment="small change patientWindow and DoctorWindow">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="15e1383b-a200-4763-b21e-975783f02ee6" name="Changes" comment="Dropdown">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/swing/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/swing/LoginView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/swing/PatientWindow.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/swing/PatientWindow.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/swing/PatientWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/swing/PatientWindow.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -153,7 +151,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687710806772</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Dropdown">
+      <created>1687851566086</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1687851566086</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -164,6 +169,7 @@
     <MESSAGE value="save authToken" />
     <MESSAGE value="patientWindow and DoctorWindow" />
     <MESSAGE value="small change patientWindow and DoctorWindow" />
-    <option name="LAST_COMMIT_MESSAGE" value="small change patientWindow and DoctorWindow" />
+    <MESSAGE value="Dropdown" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dropdown" />
   </component>
 </project>
