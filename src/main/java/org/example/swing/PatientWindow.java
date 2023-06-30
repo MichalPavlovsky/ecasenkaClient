@@ -75,18 +75,21 @@ public class PatientWindow extends  JDialog{
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         pack();
 
-        vybratButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                String selectedDoctor= (String) comboBox1.getSelectedItem();
-                getDataFromdoctor(selectedDoctor);
-
-            }
+        vybratButton.addActionListener(e -> {
+            String selectedDoctor= (String) comboBox1.getSelectedItem();
+            getDataFromdoctor(selectedDoctor);
+            openTable(parent);
         });
-        System.out.println("Pat"+getIdPatient());
-
     }
+
+    private void openTable(JFrame parent) {
+        TableOfTerms table = new TableOfTerms(parent);
+        table.setIdPatient(getIdPatient());
+        table.setIdDoctor(getIdDoctor());
+        setVisible(false);
+        table.setVisible(true);
+    }
+
     private void getDataFromdoctor(String selectedDoctor) {
         String[] parts = selectedDoctor.split(" ");
         String firstName = parts[0];
@@ -107,21 +110,15 @@ public class PatientWindow extends  JDialog{
             outputStream.flush();
             outputStream.close();
             int responseCode = connection.getResponseCode();
-            System.out.println(responseCode);
-            System.out.println(jsonBody);
             if (responseCode == HttpURLConnection.HTTP_OK) {
                 BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
                 String responseString = reader.readLine();
                 reader.close();
                 int idDoctor = Integer.parseInt(responseString);
-
-                System.out.println("Pat " +getIdPatient());
                 setIdDoctor(idDoctor);
-                System.out.println("Doct"+getIdDoctor());
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
 }

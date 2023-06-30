@@ -17,6 +17,7 @@ public class MainDashBoard extends JFrame{
     setMinimumSize(new Dimension(500, 429));
     setSize(1200, 700);
     setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+    setLocationRelativeTo(null);
     pack();
     signUpButton.addActionListener(new ActionListener() {
         @Override
