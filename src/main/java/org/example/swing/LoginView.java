@@ -80,6 +80,7 @@ public class LoginView extends JDialog{
                 ObjectMapper objectMapper = new ObjectMapper();
                 JsonNode jsonResponse = objectMapper.readTree(responseText);
 
+                int id = jsonResponse.get("id").asInt();
                 String role = jsonResponse.get("role").asText();
                 String token = jsonResponse.get("token").asText();
                 setAuthToken(token);
@@ -90,6 +91,7 @@ public class LoginView extends JDialog{
                     JOptionPane.showMessageDialog(this, "POST request successful");
                     PatientWindow patientWindow = new PatientWindow(parent);
                     setVisible(false);
+                    patientWindow.setIdPatient(id);
                     setComBox(patientWindow.getComboBox1());
                     patientWindow.setUvod("ahoj "+username);
                     patientWindow.setVisible(true);
