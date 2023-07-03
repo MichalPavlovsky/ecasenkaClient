@@ -38,8 +38,9 @@ public class TableOfTerms extends JDialog {
 
     private JButton[][] buttons;
 
-    public TableOfTerms(JFrame parent) {
+    public TableOfTerms(JFrame parent, int idDoctor) {
         super(parent);
+        setIdDoctor(idDoctor);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setTitle("Ecasenka");
 
@@ -60,7 +61,7 @@ public class TableOfTerms extends JDialog {
                 buttons[cas][den].setText(cas + 7 + ":00");
                 add(buttons[cas][den]);
                 if (checkbutton((VlastneTlacidlo) buttons[cas][den])){
-                    buttons[cas][den].disable();
+                    buttons[cas][den].setEnabled(false);
                 };
             }
         }
@@ -102,7 +103,7 @@ public class TableOfTerms extends JDialog {
                 List<TermDto> termDtos = objectMapper.readValue(responseText, new TypeReference<>() {});
                 for(TermDto term:termDtos) {
                     System.out.println("term.getDate "+term.getDate() +" "+jButton.den +"&& " +term.getTime()+" jbutoncas: "+jButton.cas);
-                    if (term.getDate() == jButton.den && term.getTime()==jButton.cas){
+                    if (term.getDate().equals(jButton.den) && term.getTime().equals(jButton.cas)){
                         check=true;
                         System.out.println("som tu ");
                     }
@@ -150,10 +151,12 @@ public class TableOfTerms extends JDialog {
                     "    \"idPatient\" : \"" + getIdPatient() + "\"\n" +
                     "}";
             System.out.println(getIdDoctor());
+            System.out.println(jsonBody);
             OutputStream outputStream = connection.getOutputStream();
             outputStream.write(jsonBody.getBytes());
             outputStream.flush();
             outputStream.close();
+            System.out.println(connection.getResponseCode());
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }

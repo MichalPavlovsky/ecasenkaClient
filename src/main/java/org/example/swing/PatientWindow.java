@@ -83,7 +83,7 @@ public class PatientWindow extends  JDialog{
     }
 
     private void openTable(JFrame parent) {
-        TableOfTerms table = new TableOfTerms(parent);
+        TableOfTerms table = new TableOfTerms(parent, getIdDoctor());
         table.setIdPatient(getIdPatient());
         table.setIdDoctor(getIdDoctor());
         setVisible(false);
