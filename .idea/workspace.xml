@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="15e1383b-a200-4763-b21e-975783f02ee6" name="Changes" comment="table for order time and date">
+    <list default="true" id="15e1383b-a200-4763-b21e-975783f02ee6" name="Changes" comment="table for order time and disable button working">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/swing/PatientWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/swing/PatientWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/swing/TableOfTerms.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/swing/TableOfTerms.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +45,7 @@
     "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
     "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "551",
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "367",
-    "last_opened_file_path": "C:/Program Files/Projekty/Schematizmus",
+    "last_opened_file_path": "C:/Users/MIchalPC/Desktop/ecasenkaClient",
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
@@ -62,7 +60,7 @@
       <recent name="C:\Users\MIchalPC\Desktop\ecasenkaClient\src\main\java\org\example\swing" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Client">
     <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Client" />
       <module name="ecasenkaClient" />
@@ -196,8 +194,26 @@
       <option name="project" value="LOCAL" />
       <updated>1688330450359</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="table for order time and disable button working">
+      <created>1688419018233</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1688419018234</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Sent to server and add on database" />
@@ -213,6 +229,7 @@
     <MESSAGE value="create new term with client" />
     <MESSAGE value="setLombok" />
     <MESSAGE value="table for order time and date" />
-    <option name="LAST_COMMIT_MESSAGE" value="table for order time and date" />
+    <MESSAGE value="table for order time and disable button working" />
+    <option name="LAST_COMMIT_MESSAGE" value="table for order time and disable button working" />
   </component>
 </project>
